@@ -1,0 +1,9 @@
+{
+  "name": "Mystery To-Do",
+  "short_name": "Mystery",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#faf7f2",
+  "theme_color": "#faf7f2",
+  "icons": []
+}
