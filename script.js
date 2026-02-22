@@ -208,7 +208,7 @@ function handleReveal() {
       state.stats.longestStreak = state.stats.streak;
     }
 
-    showReveal(seed, rarity);
+    
 
   } else {
     state.graveyard.push({ date: yKey });
@@ -221,18 +221,7 @@ function handleReveal() {
 
 /* ========= SHOW REVEAL ========= */
 
-function showReveal(seed, rarity) {
-  const box = document.getElementById("reveal");
-  if (!box) return;
 
-  document.getElementById("reveal-spirit").innerHTML =
-    generateSpirit(seed, rarity);
-
-  document.getElementById("reveal-text").textContent =
-    `${rarity} spirit joined you!`;
-
-  box.classList.remove("hidden");
-}
 
 /* ========= GALLERY ========= */
 
@@ -295,34 +284,17 @@ function initTheme() {
 
 /* ========= SHARE ========= */
 
-function initShare() {
-  const btn = document.getElementById("share-btn");
-  if (!btn) return;
 
-  btn.onclick = () => {
-    const card = document.getElementById("reveal-card");
-
-    html2canvas(card).then(canvas => {
-      const link = document.createElement("a");
-      link.href = canvas.toDataURL("image/png");
-      link.download = "mystery-spirit.png";
-
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    });
-  };
-}
 
 /* ========= INIT ========= */
 
 function init() {
   renderTasks();
-  handleReveal();
+
   renderGallery();
   renderStats();
   initTheme();
-  initShare();
+ 
 
   const input = document.getElementById("task-input");
   const addBtn = document.getElementById("add-btn");
