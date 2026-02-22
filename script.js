@@ -304,9 +304,12 @@ function initShare() {
 
     html2canvas(card).then(canvas => {
       const link = document.createElement("a");
+      link.href = canvas.toDataURL("image/png");
       link.download = "mystery-spirit.png";
-      link.href = canvas.toDataURL();
+
+      document.body.appendChild(link);
       link.click();
+      document.body.removeChild(link);
     });
   };
 }
