@@ -1,63 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mystery To-Do ✦</title>
+<title>Mystery To Do</title>
 
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#faf7f2">
+<link rel="stylesheet" href="styles/main.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Lora&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-<button id="theme-toggle" class="theme-btn">🌙</button>
+<div class="container">
 
-<div class="page">
+<h1 id="date"></h1>
 
-<header>
-  <div id="date-label" class="date"></div>
-  <h1>
-    Today’s Quest
-    <span id="streak-badge" class="streak hidden">
-      🔥 <span id="streak-count">0</span>
-    </span>
-  </h1>
-  <p class="subtitle">Finish everything. Reveal tomorrow.</p>
-</header>
+<div class="task-input">
 
-<div class="add-row">
-  <input id="task-input" placeholder="Add a task...">
-  <button id="add-btn">+</button>
-</div>
+<input id="taskInput" placeholder="Add a task for today">
 
-<ul id="tasks"></ul>
-<div id="empty" class="empty">Your companion sleeps… 🌙</div>
-
-<div id="progress" class="progress hidden">
-  <div class="bar"><div id="bar-fill"></div></div>
-  <div class="progress-text">
-    <span id="progress-count"></span>
-    <span id="progress-label"></span>
-  </div>
-</div>
-
-<a href="gallery.html" class="nav-link">Collection</a>
-<a href="stats.html" class="nav-link">Stats</a>
+<button id="addBtn">Add</button>
 
 </div>
 
-<div id="reveal" class="reveal hidden">
-  <div class="reveal-card" id="reveal-card">
-    <div id="reveal-spirit"></div>
-    <h2>Revealed!</h2>
-    <p id="reveal-text"></p>
-    <button id="share-btn">Download Card</button>
-  </div>
+<ul id="taskList"></ul>
+
 </div>
-<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
-<script src="script.js"></script>
+
+<div id="characterArea"></div>
+
+<div id="revealModal" class="hidden"></div>
+
+<script type="module" src="scripts/app.js"></script>
+
 </body>
+
 </html>
