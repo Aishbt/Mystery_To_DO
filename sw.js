@@ -1,15 +1,15 @@
-const CACHE="planner-cache"
+const CACHE="planner-cache-v2"
 
 const FILES=[
 
-"/",
-"/index.html",
-"/styles/main.css",
-"/scripts/app.js",
-"/scripts/state.js",
-"/scripts/tasks.js",
-"/scripts/characters.js",
-"/scripts/reveal.js"
+"./",
+"./index.html",
+"./styles/main.css",
+"./scripts/app.js",
+"./scripts/state.js",
+"./scripts/tasks.js",
+"./scripts/characters.js",
+"./scripts/reveal.js"
 
 ]
 
