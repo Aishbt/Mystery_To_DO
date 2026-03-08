@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 <meta charset="UTF-8">
-<title>Daily Planner</title>
+<title>Daily Cozy Planner</title>
 
 <link rel="manifest" href="manifest.json">
-
 <link rel="stylesheet" href="styles/main.css">
+
+<meta name="theme-color" content="#F4E7DD">
 
 </head>
 
@@ -23,7 +23,7 @@
 <span id="date"></span>
 </div>
 
-<div class="grid">
+<div class="layout">
 
 <!-- LEFT SIDE -->
 
@@ -32,20 +32,18 @@
 <h2>TO DO LIST</h2>
 
 <div class="taskInput">
-
-<input id="taskInput" placeholder="Add task">
-
+<input id="taskInput" placeholder="Add task...">
 <button id="addBtn">+</button>
-
 </div>
 
 <ul id="taskList"></ul>
 
 </div>
 
+
 <!-- RIGHT SIDE -->
 
-<div class="rightColumn">
+<div class="sideColumn">
 
 <div class="box">
 
@@ -82,7 +80,7 @@
 <script type="module" src="scripts/app.js"></script>
 
 <script>
-if("serviceWorker" in navigator){
+if ("serviceWorker" in navigator) {
 navigator.serviceWorker.register("sw.js")
 }
 </script>
