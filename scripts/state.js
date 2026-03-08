@@ -4,7 +4,9 @@ export function loadState(){
 
 const raw = localStorage.getItem(KEY)
 
-if(!raw) return {days:{}}
+if(!raw){
+return {days:{}}
+}
 
 return JSON.parse(raw)
 
