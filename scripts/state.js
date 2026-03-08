@@ -1,8 +1,8 @@
-const KEY="planner_state"
+const KEY = "planner_state"
 
 export function loadState(){
 
-const raw=localStorage.getItem(KEY)
+const raw = localStorage.getItem(KEY)
 
 if(!raw) return {days:{}}
 
