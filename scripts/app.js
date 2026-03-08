@@ -1,7 +1,6 @@
 import {loadState,saveState,today} from "./state.js"
 import {addTask,toggleTask,isComplete} from "./tasks.js"
 import {generateCharacter} from "./characters.js"
-import {checkReveal} from "./reveal.js"
 
 const state = loadState()
 
@@ -78,36 +77,3 @@ update()
 }
 
 render()
-
-const reveal = checkReveal(state)
-
-if(reveal){
-
-const modal = document.getElementById("revealModal")
-
-modal.classList.remove("hidden")
-
-if(reveal.type==="success"){
-
-modal.innerHTML = `
-✨ Your secret character appeared! ✨
-<br><br>
-${generateCharacter(reveal.seed,reveal.count)}
-`
-
-}
-
-else{
-
-modal.innerHTML =
-"💔 Oh no… you missed yesterday's character."
-
-}
-
-setTimeout(()=>{
-
-modal.classList.add("hidden")
-
-},3500)
-
-}
