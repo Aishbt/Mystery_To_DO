@@ -4,7 +4,9 @@
 <head>
 
 <meta charset="UTF-8">
-<title>Mystery To Do</title>
+<title>Daily Planner</title>
+
+<link rel="manifest" href="manifest.json">
 
 <link rel="stylesheet" href="styles/main.css">
 
@@ -12,15 +14,28 @@
 
 <body>
 
-<div class="container">
+<div class="planner">
 
-<h1 id="date"></h1>
+<h1 class="title">DAILY PLANNER</h1>
 
-<div class="task-input">
+<div class="dayRow">
+<span>DAY:</span>
+<span id="date"></span>
+</div>
 
-<input id="taskInput" placeholder="Add a task for today">
+<div class="grid">
 
-<button id="addBtn">Add</button>
+<!-- LEFT SIDE -->
+
+<div class="todoSection">
+
+<h2>TO DO LIST</h2>
+
+<div class="taskInput">
+
+<input id="taskInput" placeholder="Add task">
+
+<button id="addBtn">+</button>
 
 </div>
 
@@ -28,12 +43,49 @@
 
 </div>
 
+<!-- RIGHT SIDE -->
+
+<div class="rightColumn">
+
+<div class="box">
+
+<h2>WHAT I'M GRATEFUL FOR TODAY</h2>
+
+<textarea id="gratitude"></textarea>
+
+</div>
+
+<div class="box">
+
+<h2>NOTES</h2>
+
+<textarea id="notes"></textarea>
+
+</div>
+
+<div class="box">
+
+<h2>SECRET CHARACTER</h2>
+
 <div id="characterArea"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 <div id="revealModal" class="hidden"></div>
 
 <script type="module" src="scripts/app.js"></script>
 
-</body>
+<script>
+if("serviceWorker" in navigator){
+navigator.serviceWorker.register("sw.js")
+}
+</script>
 
+</body>
 </html>
