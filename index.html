@@ -69,16 +69,7 @@
 
 <div id="revealModal" class="hidden"></div>
 
-<div id="debug" style="color:red;"></div>
-
-<script>
-window.onerror = function(message, source, line) {
-document.getElementById("debug").innerText =
-"JS ERROR: " + message + " line " + line
-}
-</script>
-
-<script type="module" src="scripts/app.js"></script>
+<script src="scripts/app.js"></script>
 
 </body>
 </html>
