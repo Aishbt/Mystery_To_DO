@@ -1,10 +1,8 @@
 export function addTask(day,text){
 
 day.tasks.push({
-
-text,
+text:text,
 done:false
-
 })
 
 }
