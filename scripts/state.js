@@ -1,14 +1,10 @@
-const KEY = "mystery_todo_state"
+const KEY="planner_state"
 
 export function loadState(){
 
-const raw = localStorage.getItem(KEY)
+const raw=localStorage.getItem(KEY)
 
-if(!raw){
-
-return { days:{} }
-
-}
+if(!raw) return {days:{}}
 
 return JSON.parse(raw)
 
@@ -20,7 +16,7 @@ localStorage.setItem(KEY,JSON.stringify(state))
 
 }
 
-export function todayDate(){
+export function today(){
 
 return new Date().toISOString().slice(0,10)
 
