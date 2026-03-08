@@ -9,13 +9,13 @@ done:false
 
 }
 
-export function toggleTask(day,i){
+export function toggleTask(day,index){
 
-day.tasks[i].done=!day.tasks[i].done
+day.tasks[index].done = !day.tasks[index].done
 
 }
 
-export function complete(day){
+export function isComplete(day){
 
 if(day.tasks.length===0) return false
 
