@@ -2,21 +2,20 @@ export function addTask(day,text){
 
 day.tasks.push({
 
-text:text,
+text,
 done:false
 
 })
 
 }
 
-export function toggleTask(day,index){
+export function toggleTask(day,i){
 
-day.tasks[index].done =
-!day.tasks[index].done
+day.tasks[i].done=!day.tasks[i].done
 
 }
 
-export function isCompleted(day){
+export function complete(day){
 
 if(day.tasks.length===0) return false
 
