@@ -1,49 +1,47 @@
-import {loadState,saveState,todayDate} from "./state.js"
-import {addTask,toggleTask,isCompleted} from "./tasks.js"
+import {loadState,saveState,today} from "./state.js"
+import {addTask,toggleTask,complete} from "./tasks.js"
 import {generateCharacter} from "./characters.js"
-import {checkReveal} from "./reveal.js"
+import {reveal} from "./reveal.js"
 
-const state = loadState()
+const state=loadState()
 
-const today = todayDate()
+const date=today()
 
-if(!state.days[today]){
+if(!state.days[date]){
 
-state.days[today]={
+state.days[date]={
 
 tasks:[],
-completed:false,
-seed:Math.floor(Math.random()*10000)
+seed:Math.floor(Math.random()*10000),
+completed:false
 
 }
 
 }
 
-const day = state.days[today]
+const day=state.days[date]
 
-const input = document.getElementById("taskInput")
-const btn = document.getElementById("addBtn")
-const list = document.getElementById("taskList")
-const character = document.getElementById("characterArea")
-const modal = document.getElementById("revealModal")
-const date = document.getElementById("date")
+document.getElementById("date").innerText=date
 
-date.innerText = today
+const list=document.getElementById("taskList")
+const input=document.getElementById("taskInput")
+const btn=document.getElementById("addBtn")
+const character=document.getElementById("characterArea")
 
 function render(){
 
 list.innerHTML=""
 
-day.tasks.forEach((task,i)=>{
+day.tasks.forEach((t,i)=>{
 
 const li=document.createElement("li")
 
-li.innerHTML=
-`<input type="checkbox" ${task.done?"checked":""}> ${task.text}`
+li.innerHTML=`<input type="checkbox" ${t.done?"checked":""}> ${t.text}`
 
 li.querySelector("input").onclick=()=>{
 
 toggleTask(day,i)
+
 update()
 
 }
@@ -53,13 +51,14 @@ list.appendChild(li)
 })
 
 character.innerHTML=
+
 generateCharacter(day.seed,day.tasks.length)
 
 }
 
 function update(){
 
-day.completed = isCompleted(day)
+day.completed=complete(day)
 
 saveState(state)
 
@@ -81,25 +80,25 @@ update()
 
 render()
 
-const reveal = checkReveal(state)
+const result=reveal(state)
 
-if(reveal){
+if(result){
+
+const modal=document.getElementById("revealModal")
 
 modal.classList.remove("hidden")
 
-if(reveal.type==="success"){
+if(result.type==="success"){
 
-modal.innerHTML=
-`✨ Your spirit appeared! ✨
+modal.innerHTML=`
+✨ Your secret character appeared! ✨
 <br><br>
-${generateCharacter(reveal.seed,reveal.tasks)}`
+${generateCharacter(result.seed,result.count)}
+`
 
-}
+}else{
 
-else{
-
-modal.innerHTML=
-"💔 Oh no… you missed yesterday's spirit."
+modal.innerHTML="💔 You missed yesterday's character"
 
 }
 
@@ -107,6 +106,6 @@ setTimeout(()=>{
 
 modal.classList.add("hidden")
 
-},3000)
+},3500)
 
 }
